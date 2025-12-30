@@ -1,0 +1,1732 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NovaRide Motors — Motinhas & Acessórios</title>
+  <style>
+    :root{
+      --bg:#0f172a;
+      --bg-soft:#020617;
+      --bg-card:#020617;
+      --accent:#38bdf8;
+      --accent-soft:rgba(56,189,248,0.18);
+      --accent-2:#f97316;
+      --accent-2-soft:rgba(249,115,22,0.18);
+      --text-main:#f9fafb;
+      --muted:#9ca3af;
+      --border-soft:rgba(148,163,184,0.26);
+      --shadow-soft:0 18px 60px rgba(15,23,42,0.85);
+      --radius-lg:22px;
+      --radius-md:16px;
+      --radius-pill:999px;
+    }
+
+    *{
+      box-sizing:border-box;
+      font-family:system-ui,-apple-system,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    }
+
+    body{
+      margin:0;
+      min-height:100vh;
+      background:radial-gradient(circle at top,#1e293b 0,#020617 52%,#020617 100%);
+      color:var(--text-main);
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* ====== BARRA TOPO CNPJ / CERTIFICADO ====== */
+    .top-info{
+      width:100%;
+      background:#020617;
+      border-bottom:1px solid rgba(148,163,184,0.35);
+      font-size:11px;
+      color:var(--muted);
+    }
+    .top-info-inner{
+      max-width:1200px;
+      margin:0 auto;
+      padding:6px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .top-info-left{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    .top-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:3px 9px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.5);
+      background:rgba(15,23,42,0.85);
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:#e5e7eb;
+    }
+
+    /* ====== BARRA PROMO (LETRAS ANDANDO) ====== */
+    .promo-loop{
+      width:100%;
+      overflow:hidden;
+      white-space:nowrap;
+      background:linear-gradient(90deg,#0f172a,#020617);
+      color:#e5e7eb;
+      padding:9px 0;
+      font-weight:600;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      border-bottom:1px solid rgba(148,163,184,0.25);
+      position:relative;
+      z-index:30;
+    }
+    .promo-loop::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg,#0f172a 0,transparent 20%,transparent 80%,#0f172a 100%);
+      pointer-events:none;
+    }
+    .promo-track{
+      display:inline-block;
+      padding-left:100%;
+      animation:loop 13s linear infinite;
+    }
+    @keyframes loop{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(-100%)}
+    }
+
+    /* ====== HEADER ======= */
+    header{
+      position:sticky;
+      top:0;
+      z-index:40;
+      backdrop-filter:blur(24px);
+      background:linear-gradient(180deg,rgba(15,23,42,0.96),rgba(15,23,42,0.9) 55%,rgba(15,23,42,0.7) 100%);
+      border-bottom:1px solid rgba(148,163,184,0.35);
+    }
+    .header-inner{
+      max-width:1200px;
+      margin:0 auto;
+      padding:14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .logo{
+      width:54px;
+      height:54px;
+      border-radius:18px;
+      background:radial-gradient(circle at 20% 0,#38bdf8 0,#0f172a 55%,#020617 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      font-size:22px;
+      color:#e5e7eb;
+      box-shadow:0 18px 60px rgba(56,189,248,0.35);
+      position:relative;
+      overflow:hidden;
+    }
+    .logo::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at top,#ffffff33 0,transparent 55%);
+      pointer-events:none;
+    }
+    .brand-txt h1{
+      margin:0;
+      font-size:20px;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+    .brand-tag{
+      font-size:12px;
+      color:var(--muted);
+      display:flex;
+      align-items:center;
+      gap:6px;
+      flex-wrap:wrap;
+    }
+    .badge-mini{
+      background:rgba(56,189,248,0.16);
+      color:#e0f2fe;
+      padding:2px 8px;
+      border-radius:999px;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      border:1px solid rgba(56,189,248,0.5);
+    }
+
+    .controls{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .btn{
+      border:none;
+      border-radius:var(--radius-pill);
+      padding:9px 16px;
+      font-weight:600;
+      cursor:pointer;
+      font-size:13px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      transition:transform .12s ease,box-shadow .12s ease,background .12s ease,color .12s ease,filter .12s ease;
+      text-decoration:none;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,#38bdf8,#0ea5e9);
+      color:#0b1120;
+      box-shadow:0 12px 35px rgba(56,189,248,0.5);
+    }
+    .btn-primary:hover{
+      filter:brightness(1.08);
+      transform:translateY(-1px);
+      box-shadow:0 18px 45px rgba(56,189,248,0.7);
+    }
+    .btn-ghost{
+      background:transparent;
+      color:var(--muted);
+      border:1px solid var(--border-soft);
+    }
+    .btn-ghost:hover{
+      border-color:#e5e7eb;
+      color:#e5e7eb;
+      transform:translateY(-1px);
+    }
+    .btn-icon{
+      width:22px;
+      height:22px;
+      border-radius:999px;
+      background:rgba(15,23,42,0.9);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:13px;
+    }
+
+    #cartCountBubble{
+      min-width:18px;
+      height:18px;
+      padding:0 6px;
+      border-radius:999px;
+      background:var(--accent-2);
+      color:#111827;
+      font-size:11px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+    }
+
+    main{
+      max-width:1200px;
+      margin:0 auto;
+      padding:26px 20px 40px;
+    }
+
+    /* ====== HERO ====== */
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0,3fr) minmax(0,2.3fr);
+      gap:26px;
+      margin-bottom:26px;
+      align-items:stretch;
+    }
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+    }
+
+    .hero-left{
+      padding:22px 24px;
+      border-radius:var(--radius-lg);
+      background:radial-gradient(circle at 0 0,#1e293b 0,transparent 42%),radial-gradient(circle at 100% 0,#0f172a 0,transparent 42%),linear-gradient(135deg,#020617,#020617);
+      border:1px solid rgba(148,163,184,0.5);
+      box-shadow:var(--shadow-soft);
+    }
+    .hero-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:3px 10px 3px 4px;
+      background:rgba(15,23,42,0.9);
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.6);
+      font-size:11px;
+      color:#e5e7eb;
+      margin-bottom:10px;
+    }
+    .hero-pill span{
+      background:#22c55e1f;
+      color:#bbf7d0;
+      padding:3px 7px;
+      border-radius:999px;
+      font-weight:600;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .hero-title{
+      font-size:26px;
+      font-weight:800;
+      letter-spacing:.01em;
+      margin:4px 0 8px;
+    }
+    .hero-sub{
+      color:var(--muted);
+      font-size:14px;
+      max-width:420px;
+    }
+    .hero-highlights{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
+      margin-bottom:16px;
+    }
+    .chip{
+      padding:7px 11px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.7);
+      font-size:12px;
+      color:#e5e7eb;
+      background:rgba(15,23,42,0.85);
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+    .chip-dot{
+      width:6px;
+      height:6px;
+      border-radius:999px;
+      background:#22c55e;
+      box-shadow:0 0 0 4px rgba(34,197,94,0.18);
+    }
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:8px;
+    }
+
+    .hero-right{
+      border-radius:var(--radius-lg);
+      background:radial-gradient(circle at 15% 0,#38bdf822 0,transparent 45%),radial-gradient(circle at 100% 20%,#f9731629 0,transparent 50%),linear-gradient(145deg,#020617,#020617);
+      padding:18px;
+      border:1px solid rgba(148,163,184,0.6);
+      box-shadow:var(--shadow-soft);
+    }
+    .hero-right-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:10px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .hero-tag{
+      font-size:11px;
+      padding:4px 9px;
+      border-radius:999px;
+      background:rgba(34,197,94,0.08);
+      color:#bbf7d0;
+      border:1px solid rgba(34,197,94,0.45);
+      text-transform:uppercase;
+      letter-spacing:.11em;
+    }
+    .hero-card-main{
+      border-radius:var(--radius-md);
+      background:radial-gradient(circle at 0 0,#38bdf83a 0,transparent 50%),radial-gradient(circle at 100% 0,#f9731638 0,transparent 55%),linear-gradient(145deg,#020617,#0b1120);
+      padding:15px 15px 18px;
+      border:1px solid rgba(148,163,184,0.55);
+    }
+    .hero-card-top{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .hero-product-name{
+      font-weight:700;
+      font-size:15px;
+    }
+    .hero-product-specs{
+      font-size:12px;
+      color:#e5e7eb;
+    }
+    .hero-badge-high{
+      font-size:11px;
+      background:rgba(56,189,248,0.16);
+      border-radius:999px;
+      padding:4px 8px;
+      border:1px solid rgba(56,189,248,0.6);
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      color:#e0f2fe;
+    }
+    .hero-price-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      margin-top:10px;
+    }
+    .hero-price-main{
+      font-size:22px;
+      font-weight:800;
+      color:#fef3c7;
+    }
+    .hero-price-main span{
+      font-size:13px;
+      font-weight:500;
+      color:#e5e7eb;
+    }
+    .hero-pix{
+      font-size:12px;
+      color:var(--muted);
+    }
+    .hero-badges-bottom{
+      margin-top:10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      font-size:11px;
+      color:var(--muted);
+    }
+
+    /* ====== PRODUTOS ====== */
+    .section-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin:18px 0 8px;
+    }
+    .section-header h2{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.02em;
+    }
+    .section-sub{
+      color:var(--muted);
+      font-size:13px;
+    }
+    .filters{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .filter-pill{
+      font-size:12px;
+      padding:5px 10px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.5);
+      color:var(--muted);
+      background:rgba(15,23,42,0.85);
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      transition:.12s;
+    }
+    .filter-pill.active{
+      border-color:var(--accent);
+      color:#e0f2fe;
+      background:var(--accent-soft);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:18px;
+      margin-top:14px;
+    }
+
+    .card{
+      background:var(--bg-card);
+      border-radius:var(--radius-md);
+      padding:14px 15px 14px;
+      border:1px solid rgba(148,163,184,0.5);
+      box-shadow:0 14px 45px rgba(15,23,42,0.7);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      position:relative;
+      overflow:hidden;
+      transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background:radial-gradient(circle at 0 0,#38bdf808 0,transparent 55%);
+      opacity:0;
+      transition:opacity .2s ease;
+      pointer-events:none;
+    }
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 20px 55px rgba(15,23,42,0.9);
+      border-color:rgba(94,234,212,0.9);
+    }
+    .card:hover::before{opacity:1;}
+
+    .product-img{
+      height:160px;
+      border-radius:14px;
+      overflow:hidden;
+      background:#020617;
+      border:1px solid rgba(148,163,184,0.5);
+    }
+    .product-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .product-name{
+      font-weight:700;
+      font-size:15px;
+    }
+    .product-desc{
+      font-size:12px;
+      color:var(--muted);
+    }
+    .price-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      margin-top:4px;
+      gap:10px;
+    }
+    .price{
+      font-weight:800;
+      font-size:18px;
+      color:#fef3c7;
+    }
+    .price small{
+      display:block;
+      font-weight:400;
+      font-size:11px;
+      color:var(--muted);
+    }
+    .card-actions{
+      display:flex;
+      justify-content:flex-end;
+      gap:8px;
+      margin-top:6px;
+      flex-wrap:wrap;
+    }
+    .btn-add{
+      font-size:13px;
+      padding:7px 14px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      color:#e0f2fe;
+      border:1px solid rgba(56,189,248,0.7);
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      cursor:pointer;
+      transition:.12s;
+    }
+    .btn-add:hover{
+      background:linear-gradient(135deg,#38bdf8,#0ea5e9);
+      color:#020617;
+      box-shadow:0 10px 30px rgba(56,189,248,0.7);
+      transform:translateY(-1px);
+    }
+    .btn-more{
+      font-size:12px;
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid var(--border-soft);
+      background:rgba(15,23,42,0.9);
+      color:var(--muted);
+      cursor:pointer;
+    }
+    .btn-more:hover{
+      border-color:#e5e7eb;
+      color:#e5e7eb;
+    }
+
+    /* ====== OVERLAY CARRINHO ====== */
+    #cartOverlay{
+      position:fixed;
+      inset:0;
+      background:radial-gradient(circle at top,#020617cc 0,#020617f0 50%,#020617ff 100%);
+      opacity:0;
+      pointer-events:none;
+      transition:.18s ease;
+      z-index:60;
+    }
+    #cartOverlay.visible{
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    .cart-panel{
+      position:fixed;
+      right:0;
+      top:0;
+      bottom:0;
+      width:380px;
+      max-width:90%;
+      padding:18px 18px 20px;
+      background:radial-gradient(circle at 0 0,#38bdf823 0,transparent 55%),radial-gradient(circle at 100% 0,#f973162b 0,transparent 55%),linear-gradient(135deg,#020617,#020617);
+      box-shadow:-20px 0 60px rgba(15,23,42,0.95);
+      border-left:1px solid rgba(148,163,184,0.6);
+      transform:translateX(110%);
+      opacity:0;
+      transition:transform .22s cubic-bezier(.19,1,.22,1),opacity .15s ease;
+      z-index:70;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .cart-panel.open{
+      transform:translateX(0);
+      opacity:1;
+    }
+
+    .cart-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:4px;
+    }
+    .cart-title{
+      font-weight:800;
+      font-size:18px;
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .cart-sub{
+      font-size:11px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.11em;
+    }
+
+    .cart-list{
+      margin-top:8px;
+      flex:1;
+      overflow:auto;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      padding-right:4px;
+    }
+    .cart-empty{
+      text-align:center;
+      padding:26px 6px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .cart-item{
+      display:flex;
+      gap:10px;
+      background:rgba(15,23,42,0.9);
+      border-radius:14px;
+      padding:10px 10px;
+      border:1px solid rgba(148,163,184,0.55);
+    }
+    .cart-thumb{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      overflow:hidden;
+      background:#020617;
+      border:1px solid rgba(148,163,184,0.6);
+      flex-shrink:0;
+    }
+    .cart-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .cart-main{
+      flex:1;
+      min-width:0;
+    }
+    .cart-name{
+      font-size:13px;
+      font-weight:600;
+      margin-bottom:2px;
+    }
+    .cart-meta{
+      font-size:11px;
+      color:var(--muted);
+    }
+    .cart-right{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:6px;
+    }
+    .pill-row{
+      display:flex;
+      gap:6px;
+      align-items:center;
+    }
+    .pill{
+      background:#020617;
+      padding:4px 9px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:600;
+      border:1px solid rgba(148,163,184,0.7);
+      font-size:12px;
+      transition:.12s;
+    }
+    .pill-static{
+      cursor:default;
+      background:rgba(15,23,42,0.95);
+    }
+    .pill:not(.pill-static):hover{
+      border-color:#e5e7eb;
+      color:#e5e7eb;
+      transform:translateY(-1px);
+    }
+    .btn-remove{
+      border:none;
+      background:transparent;
+      color:#fca5a5;
+      font-size:11px;
+      cursor:pointer;
+      opacity:.85;
+      display:inline-flex;
+      align-items:center;
+      gap:4px;
+      padding:2px 0;
+    }
+    .btn-remove:hover{
+      opacity:1;
+      text-decoration:underline;
+    }
+
+    .cart-footer{
+      margin-top:8px;
+      padding-top:10px;
+      border-top:1px dashed rgba(148,163,184,0.7);
+    }
+    .cart-total-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:8px;
+      font-weight:700;
+      font-size:15px;
+    }
+    .cart-total-row span:last-child{
+      color:#fef3c7;
+      font-size:17px;
+    }
+    .cart-note{
+      font-size:11px;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+    .cart-actions{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .btn-checkout{
+      width:100%;
+      justify-content:center;
+      padding:9px 16px;
+      border-radius:var(--radius-pill);
+      background:linear-gradient(135deg,#22c55e,#16a34a);
+      color:#052e16;
+      border:none;
+      font-weight:700;
+      font-size:14px;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      box-shadow:0 12px 35px rgba(34,197,94,0.55);
+      transition:.12s;
+    }
+    .btn-checkout:hover{
+      filter:brightness(1.08);
+      transform:translateY(-1px);
+      box-shadow:0 18px 42px rgba(34,197,94,0.75);
+    }
+    .btn-sec{
+      width:100%;
+      justify-content:center;
+      padding:7px 16px;
+      border-radius:var(--radius-pill);
+      border:1px dashed rgba(148,163,184,0.7);
+      background:rgba(15,23,42,0.95);
+      color:var(--muted);
+      font-size:12px;
+      cursor:pointer;
+    }
+    .btn-sec:hover{
+      border-style:solid;
+      color:#e5e7eb;
+    }
+
+    /* ====== MODAIS ====== */
+    .modal-backdrop{
+      position:fixed;
+      inset:0;
+      background:rgba(15,23,42,0.88);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+      z-index:90;
+      opacity:0;
+      pointer-events:none;
+      transition:.18s ease;
+    }
+    .modal-backdrop.visible{
+      opacity:1;
+      pointer-events:auto;
+    }
+    .modal-panel{
+      width:100%;
+      max-width:480px;
+      background:radial-gradient(circle at 0 0,#38bdf824 0,transparent 55%),radial-gradient(circle at 100% 0,#f9731626 0,transparent 55%),#020617;
+      border-radius:20px;
+      border:1px solid rgba(148,163,184,0.7);
+      box-shadow:var(--shadow-soft);
+      padding:18px 18px 16px;
+    }
+    .modal-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:10px;
+      margin-bottom:10px;
+    }
+    .modal-title{
+      font-size:17px;
+      font-weight:700;
+    }
+    .modal-sub{
+      font-size:12px;
+      color:var(--muted);
+    }
+    .modal-close{
+      border:none;
+      background:transparent;
+      color:var(--muted);
+      cursor:pointer;
+      font-size:18px;
+    }
+
+    .modal-body-checkout{
+      display:grid;
+      grid-template-columns:minmax(0,1.2fr) minmax(0,1.2fr);
+      gap:14px;
+    }
+    @media (max-width:650px){
+      .modal-body-checkout{grid-template-columns:1fr;}
+    }
+    .qr-box{
+      background:#020617;
+      border-radius:16px;
+      border:1px solid rgba(148,163,184,0.8);
+      padding:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .qr-box span{
+      font-size:32px;
+      display:block;
+      margin-bottom:8px;
+    }
+    .order-info{
+      font-size:13px;
+      color:var(--muted);
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .order-highlight{
+      font-size:14px;
+      color:#e5e7eb;
+    }
+    .order-id{
+      font-family:monospace;
+      background:#020617;
+      border-radius:999px;
+      padding:4px 9px;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      border:1px solid rgba(148,163,184,0.7);
+      font-size:12px;
+      color:#e5e7eb;
+    }
+    .order-list{
+      max-height:110px;
+      overflow:auto;
+      font-size:12px;
+    }
+    .order-list ul{
+      padding-left:16px;
+      margin:6px 0 0;
+    }
+    .order-list li{
+      margin-bottom:2px;
+    }
+    .order-actions{
+      margin-top:10px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .btn-wpp{
+      width:100%;
+      justify-content:center;
+      padding:8px 16px;
+      border-radius:var(--radius-pill);
+      background:#22c55e1a;
+      color:#bbf7d0;
+      border:1px solid rgba(34,197,94,0.7);
+      font-size:13px;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .btn-wpp:hover{
+      background:#22c55e33;
+      color:#ecfdf5;
+    }
+    .order-note-small{
+      font-size:11px;
+      color:var(--muted);
+    }
+
+    .modal-body-product{
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(0,1.4fr);
+      gap:14px;
+    }
+    @media (max-width:650px){
+      .modal-body-product{grid-template-columns:1fr;}
+    }
+    .product-modal-img{
+      border-radius:16px;
+      overflow:hidden;
+      background:#020617;
+      border:1px solid rgba(148,163,184,0.7);
+    }
+    .product-modal-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .product-modal-info{
+      font-size:13px;
+      color:var(--muted);
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .product-modal-name{
+      font-size:16px;
+      font-weight:700;
+      color:#e5e7eb;
+    }
+    .product-modal-long{
+      font-size:13px;
+      color:var(--muted);
+    }
+    .product-modal-specs{
+      font-size:12px;
+      color:#e5e7eb;
+    }
+    .product-modal-specs ul{
+      margin:4px 0 0;
+      padding-left:16px;
+    }
+    .product-modal-specs li{
+      margin-bottom:2px;
+    }
+    .product-modal-price{
+      margin-top:6px;
+      font-size:16px;
+      font-weight:700;
+      color:#fef3c7;
+    }
+
+    /* ====== FLOATING WHATSAPP ====== */
+    .floating-wpp{
+      position:fixed;
+      bottom:18px;
+      left:18px;
+      z-index:80;
+    }
+    .floating-wpp a{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:#22c55e;
+      color:#052e16;
+      font-size:13px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:0 18px 40px rgba(22,163,74,0.55);
+    }
+
+    footer{
+      text-align:center;
+      padding:24px 16px 26px;
+      color:var(--muted);
+      font-size:12px;
+      border-top:1px solid rgba(148,163,184,0.3);
+      background:rgba(15,23,42,0.96);
+      margin-top:10px;
+    }
+
+    ::-webkit-scrollbar{width:6px;}
+    ::-webkit-scrollbar-track{background:transparent;}
+    ::-webkit-scrollbar-thumb{background:#4b5563;border-radius:999px;}
+  </style>
+</head>
+<body>
+
+<!-- TOPO CNPJ / CERTIFICADO -->
+<div class="top-info">
+  <div class="top-info-inner">
+    <div class="top-info-left">
+      <span>CNPJ: <strong>53.279.664/0001-06</strong></span>
+      <span>|</span>
+      
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+      <div class="top-pill">🔒 Site protegido (SSL)</div>
+      <div class="top-pill">⭐ Loja verificada</div>
+    </div>
+  </div>
+</div>
+
+<!-- LOOP INFINITO (PROMO) -->
+<div class="promo-loop">
+  <div class="promo-track">
+    🔥 FRETE GRÁTIS PARA TODO O BRASIL • MOTINHAS ELÉTRICAS EM ATÉ 12X • SUPORTE WHATSAPP 24H • CAPACETES & ACESSÓRIOS PREMIUM • FRETE GRÁTIS PARA TODO O BRASIL • MOTINHAS ELÉTRICAS EM ATÉ 12X • SUPORTE WHATSAPP 24H •
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="logo">NR</div>
+      <div class="brand-txt">
+        <h1>NovaRide Motors</h1>
+        <div class="brand-tag">
+          <span class="badge-mini">Motinhas & Acessórios</span>
+          <span>Envios rápidos para todo o Brasil</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <a href="https://wa.me/5513982012015?text=Ol%C3%A1%2C+gostaria+de+ajuda+com+um+pedido+da+NovaRide+Motors." target="_blank" class="btn btn-ghost">
+        <div class="btn-icon">💬</div>
+        Suporte WhatsApp
+      </a>
+      <button class="btn btn-primary" id="openCartBtn">
+        <div class="btn-icon">🛒</div>
+        Carrinho
+        <span id="cartCountBubble">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-pill">
+        <span>Atendimento humano</span> Combine o pagamento direto com nossa equipe via WhatsApp
+      </div>
+      <div class="hero-title">
+        Sua motinha elétrica em uma experiência de compra premium.
+      </div>
+      <p class="hero-sub">
+        Monte o combo perfeito com motinha, capacete, bateria extra e cadeado digital.
+        Finalize tudo pelo WhatsApp: frete, forma de pagamento e confirmação do pedido.
+      </p>
+
+      <div class="hero-highlights">
+        <div class="chip">
+          <div class="chip-dot"></div>
+          Entrega rápida nas capitais
+        </div>
+        <div class="chip">🚚 Frete grátis para o Brasil</div>
+        <div class="chip">💬 Fechamento personalizado via WhatsApp</div>
+        <div class="chip">🛟 Suporte dedicado</div>
+      </div>
+
+      <div class="hero-actions">
+        <button class="btn btn-primary" id="scrollProdutos">
+          Ver produtos em destaque
+        </button>
+        <button class="btn btn-ghost" id="openCartBtn2">
+          Ver carrinho
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-right-header">
+        <div>Oferta especial do dia</div>
+        <div class="hero-tag">combo motinha + brinde</div>
+      </div>
+
+      <div class="hero-card-main">
+        <div class="hero-card-top">
+          <div>
+            <div class="hero-product-name">Motinha Elétrica Lite 250W</div>
+            <div class="hero-product-specs">
+              40 km/h • 50 km de autonomia<br />
+              Suporta até 80 kg • Uso na cidade
+            </div>
+          </div>
+          <div class="hero-badge-high">
+            🛵 + 🔐 <span>Desconto em cadeado</span>
+          </div>
+        </div>
+
+        <div class="hero-price-row">
+          <div>
+            <div class="hero-price-main">
+              R$ 4.500 <span>valor referência à vista</span>
+            </div>
+            <div class="hero-pix">
+              Formas de pagamento e parcelamento combinadas diretamente com nossa equipe via WhatsApp.
+            </div>
+          </div>
+          <button class="btn-add" onclick="addToCart(1)">
+            <span>Adicionar ao carrinho</span> <span>+</span>
+          </button>
+        </div>
+
+        <div class="hero-badges-bottom">
+          <span>✔ Garantia e nota fiscal</span>
+          <span>•</span>
+          <span>✔ Peças e assistência</span>
+          <span>•</span>
+          <span>✔ Uso urbano e recreativo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTOS -->
+  <section id="produtos">
+    <div class="section-header">
+      <div>
+        <h2>Nossos produtos</h2>
+        <div class="section-sub">Escolha os itens, veja os detalhes em “Saber mais” e monte seu pedido.</div>
+      </div>
+      <div class="filters">
+        <button class="filter-pill active" data-filter="todos">Todos</button>
+        <button class="filter-pill" data-filter="motinha">Motinhas</button>
+        <button class="filter-pill" data-filter="capacete">Capacetes</button>
+        <button class="filter-pill" data-filter="cadeado">Cadeados</button>
+      </div>
+    </div>
+
+    <div class="grid" id="productGrid"></div>
+  </section>
+</main>
+
+<!-- OVERLAY E CARRINHO -->
+<div id="cartOverlay"></div>
+
+<div id="cartPanel" class="cart-panel">
+  <div class="cart-header">
+    <div class="cart-title">
+      <span>Carrinho</span>
+      <span class="cart-sub">Resumo do seu pedido</span>
+    </div>
+    <button class="btn-ghost" id="closeCartBtn">
+      <div class="btn-icon">✕</div>
+      Fechar
+    </button>
+  </div>
+
+  <div class="cart-list" id="cartList"></div>
+
+  <div class="cart-footer">
+    <div class="cart-total-row">
+      <span>Total estimado</span>
+      <span id="cartTotal">R$ 0,00</span>
+    </div>
+    <div class="cart-note">
+      Este é um valor de referência. O frete e a forma de pagamento serão combinados e confirmados com você via WhatsApp.
+    </div>
+    <div class="cart-actions">
+      <button class="btn-checkout" onclick="openCheckout()">
+        Finalizar pelo WhatsApp
+        <span>→</span>
+      </button>
+      <button class="btn-sec" id="closeCartBtn2">
+        Continuar comprando
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL CHECKOUT / WHATSAPP -->
+<div id="checkoutModal" class="modal-backdrop">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Finalizar pedido via WhatsApp</div>
+        <div class="modal-sub">
+          Enviaremos seu pedido para o WhatsApp da loja. Lá você combina frete, forma de pagamento e confirmação final.
+        </div>
+      </div>
+      <button class="modal-close" id="closeCheckoutBtn">✕</button>
+    </div>
+
+    <div class="modal-body-checkout">
+      <div class="qr-box">
+        <span>💬</span>
+        Clique no botão ao lado para abrir o WhatsApp já com seu pedido montado. Nossa equipe vai te responder e concluir a venda com você.
+      </div>
+      <div class="order-info">
+        <div class="order-highlight">
+          Pedido: <span id="checkoutOrderId" class="order-id"></span>
+        </div>
+        <div class="order-highlight">
+          Total estimado: <strong id="checkoutTotal">R$ 0,00</strong>
+        </div>
+        <div class="order-list">
+          <strong>Itens do pedido:</strong>
+          <ul id="checkoutResumo"></ul>
+        </div>
+        <div class="order-actions">
+          <a id="wppLink" class="btn-wpp" target="_blank">
+            💬 Enviar pedido no WhatsApp
+          </a>
+          <div class="order-note-small">
+            Dica: se quiser, você também pode tirar print desta tela para lembrar os itens escolhidos. Qualquer ajuste de cor, modelo ou forma de pagamento é combinado direto com nossa equipe.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DETALHE DE PRODUTO -->
+<div id="productModal" class="modal-backdrop">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <div>
+        <div class="modal-title" id="productModalName">Produto</div>
+        <div class="modal-sub" id="productModalShort"></div>
+      </div>
+      <button class="modal-close" id="closeProductModalBtn">✕</button>
+    </div>
+
+    <div class="modal-body-product">
+      <div class="product-modal-img">
+        <img id="productModalImg" alt="">
+      </div>
+      <div class="product-modal-info">
+        <div class="product-modal-long" id="productModalLong"></div>
+        <div class="product-modal-specs" id="productModalSpecs"></div>
+        <div class="product-modal-price" id="productModalPrice"></div>
+        <div style="margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn btn-primary" id="productModalAddBtn">
+            <div class="btn-icon">🛒</div> Adicionar ao carrinho
+          </button>
+          <button class="btn btn-ghost" id="productModalCloseBtn2">
+            Voltar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FLOATING WHATSAPP SUPORTE -->
+<div class="floating-wpp">
+  <a href="https://wa.me/5513982012015?text=Ol%C3%A1%2C+preciso+de+ajuda+com+minha+compra+na+NovaRide+Motors." target="_blank">
+    <span>💬 Suporte</span> <strong>WhatsApp</strong>
+  </a>
+</div>
+
+<footer>
+  &copy; 2025 NovaRide Motors — Motinhas & Acessórios. CNPJ 53.279.664/0001-06. Todos os direitos reservados.
+</footer>
+
+<script>
+  /* ====== CONFIGURAÇÃO LOJA / WHATSAPP ====== */
+  const WPP_SUPORTE_NUMERO = "5513982012015";
+
+  
+    const PRODUCTS = [
+  /* ========= MOTINHAS (8) ========= */
+  {
+    id: 1,
+    category: "motinha",
+    name: "Motinha Elétrica Lite 500w",
+    shortDesc: "40 km/h • 50 km de autonomia • até 80 kg",
+    longDesc: "Motinha elétrica de entrada, ideal para deslocamentos curtos e uso recreativo. Leve, econômica e simples de usar.",
+    specs: [
+      "Acompanha bateria potente de 48V20AH.",
+      "Velocidade máxima: 40 km/h",
+      "Autonomia média: 50 km",
+      "Suporta até 80 kg",
+      "Carregador bivolt incluso"
+    ],
+    price: 4500.00,
+    img: "fotos/scooter-eletrica-500w-rosa-com-cestinha.png"
+
+
+
+  },
+  {
+    id: 2,
+    category: "motinha",
+    name: "Motinha Elétrica City 500W",
+    shortDesc: "50 km/h • 45 km de autonomia • uso urbano",
+    longDesc: "Modelo voltado para uso urbano diário, com mais torque e conforto. Perfeita para ir ao trabalho ou escola.",
+    specs: [
+      "Motor elétrico 500W",
+      "Velocidade máxima: 40 km/h",
+      "Autonomia média: 45 km",
+      "Freios a disco",
+      "Banco confortável com ajuste"
+    ],
+    price: 4600.00,
+    img: "fotos/images.jpeg"
+  },
+  {
+    id: 3,
+    category: "motinha",
+    name: "Motinha Elétrica Pro 800W",
+    shortDesc: "50 km/h • 55 km de autonomia • suspensão reforçada",
+    longDesc: "Motinha para quem quer desempenho e resistência. Indicada para uso mais intenso e percursos maiores.",
+    specs: [
+      "Motor elétrico 800W",
+      "Velocidade máxima: 55 km/h",
+      "Autonomia média: 70 km",
+      "Suporta até 140 kg",
+      "Suspensão dianteira e traseira"
+    ],
+    price: 3500.00,
+    img: "fotos/moto-scooter-eletrica-ecomotors-modelo-X10-3.webp"
+  },
+  
+  {
+    id: 4,
+    category: "motinha",
+    name: "Motinha Elétrica Comfort",
+    shortDesc: "Banco largo • foco em conforto",
+    longDesc: "Modelo com foco em conforto, ideal para quem passa mais tempo sobre a motinha.",
+    specs: [
+      "Motor elétrico 500W",
+      "Banco extra-largo",
+      "Autonomia média: 45 km",
+      "Amortecedores macios",
+      "Painel simples e intuitivo"
+    ],
+    price: 2500.00,
+    img: "fotos/patinete-eletrico-2000w-vurbee-cores-preta.png"
+  },
+  {
+    id: 5,
+    category: "motinha",
+    name: "Motinha Elétrica Sport",
+    shortDesc: "Visual esportivo • forte aceleração",
+    longDesc: "Motinha de visual esportivo, com resposta rápida de aceleração e visual mais agressivo.",
+    specs: [
+      "Motor elétrico 800W",
+      "Velocidade máxima: 50 km/h",
+      "Pneus esportivos",
+      "Farol em LED",
+      "Painel digital"
+    ],
+    price: 5320.90,
+    img: "fotos/images (1).jpeg"
+  },
+  
+
+  /* ========= CAPACETES (10) ========= */
+  {
+    id: 8,
+    category: "capacete",
+    name: "Capacete Urbano Basic",
+    shortDesc: "Modelo aberto • uso diário",
+    longDesc: "Capacete leve e ventilado para deslocamentos urbanos curtos e moderados.",
+    specs: [
+      "Certificação nacional",
+      "Forração simples",
+      "Entradas de ar frontais",
+      "Fecho de engate rápido"
+    ],
+    price: 149.90,
+    img: "fotos/images (2).jpeg"
+  },
+  {
+    id: 9,
+    category: "capacete",
+    name: "Capacete Urbano Plus",
+    shortDesc: "Forro removível • maior conforto",
+    longDesc: "Versão mais confortável, com forro removível e viseira resistente a risco.",
+    specs: [
+      "Forração removível e lavável",
+      "Viseira com tratamento anti-risco",
+      "Boa ventilação",
+      "Peso reduzido"
+    ],
+    price: 199.90,
+    img: "fotos/capacete-cap-urban-rad-vd-lar-s-53-55-2-1_640x640+fill_ffffff.jpg"
+  },
+  {
+    id: 10,
+    category: "capacete",
+    name: "Capacete Fechado Street",
+    shortDesc: "Proteção total • uso esportivo",
+    longDesc: "Capacete fechado com foco em proteção, ideal para quem gosta de pilotar com mais segurança.",
+    specs: [
+      "Modelo integral (fechado)",
+      "Viseira ampla",
+      "Revestimento interno macio",
+      "Certificação de segurança"
+    ],
+    price: 259.90,
+    img: "fotos/S394be703ffb14dbbb0fd13089340982bj.avif"
+  },
+{
+  id: 11,
+    category: "motinha",
+    name: "Oggi e-bike bw 8.0 2024 elétrica assistida e acelerador 32km shimano acera 8v cinza/preto",
+    shortDesc: "Velocidade • uso Geral",
+    longDesc: "A bicicleta elétrica Oggi BW 8.0 2024 combina estilo, desempenho e tecnologia em um design moderno e funcional. Equipada com sistema de assistência elétrica, esta bicicleta permite percorrer distâncias maiores e enfrentar terrenos difíceis com facilidade. Seu motor elétrico fornece potência suave e silenciosa",
+    specs: [
+      "Aro: 29",
+      "Tipo de batería: recarregável.",
+      "Peso máximo suportado: 100kg.",
+      "Velocidade máxima: 25km/h."
+    ],
+    price: 3999.90,
+    img: "fotos/6f88006a-9685-409c-8d30-31d1769a805a.jpg"
+  }
+  
+  
+];
+
+  /* ====== “BACK-END” NO FRONT (localStorage) ====== */
+  let cart = JSON.parse(localStorage.getItem("nr_cart") || "[]");
+
+  const grid              = document.getElementById("productGrid");
+  const cartList          = document.getElementById("cartList");
+  const cartTotal         = document.getElementById("cartTotal");
+  const cartOverlay       = document.getElementById("cartOverlay");
+  const cartPanel         = document.getElementById("cartPanel");
+  const cartCountBubble   = document.getElementById("cartCountBubble");
+  const checkoutModal     = document.getElementById("checkoutModal");
+  const checkoutOrderIdEl = document.getElementById("checkoutOrderId");
+  const checkoutTotalEl   = document.getElementById("checkoutTotal");
+  const checkoutResumoEl  = document.getElementById("checkoutResumo");
+  const wppLink           = document.getElementById("wppLink");
+
+  const productModal      = document.getElementById("productModal");
+  const productModalName  = document.getElementById("productModalName");
+  const productModalShort = document.getElementById("productModalShort");
+  const productModalImg   = document.getElementById("productModalImg");
+  const productModalLong  = document.getElementById("productModalLong");
+  const productModalSpecs = document.getElementById("productModalSpecs");
+  const productModalPrice = document.getElementById("productModalPrice");
+  const productModalAddBtn= document.getElementById("productModalAddBtn");
+
+  const filterButtons     = document.querySelectorAll(".filter-pill");
+  let currentFilter       = "todos";
+
+  const fmt = v => v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+
+  /* ====== RENDER PRODUTOS ====== */
+  function renderProducts(){
+    grid.innerHTML = "";
+    PRODUCTS
+      .filter(p => currentFilter === "todos" || p.category === currentFilter)
+      .forEach(p => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+          <div class="product-img">
+            <img src="${p.img}" alt="${p.name}">
+          </div>
+          <div class="product-name">${p.name}</div>
+          <div class="product-desc">${p.shortDesc}</div>
+          <div class="price-row">
+            <div class="price">
+              ${fmt(p.price)}
+              <small>valor referência à vista</small>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="btn-more" onclick="openProduct(${p.id})">Saber mais</button>
+            <button class="btn-add" onclick="addToCart(${p.id})">
+              <span>Adicionar</span> <span>+</span>
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+  }
+  renderProducts();
+
+  /* ====== FILTROS ====== */
+  filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      filterButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentFilter = btn.dataset.filter || "todos";
+      renderProducts();
+    });
+  });
+
+  function saveCart(){
+    localStorage.setItem("nr_cart", JSON.stringify(cart));
+    updateCartUI();
+  }
+
+  function addToCart(id){
+    const p = PRODUCTS.find(x => x.id === id);
+    if(!p) return;
+    const item = cart.find(x => x.id === id);
+    if(item){
+      item.qty++;
+    }else{
+      cart.push({id:p.id, name:p.name, price:p.price, qty:1, img:p.img});
+    }
+    saveCart();
+    openCart();
+  }
+
+  function removeFromCart(id){
+    cart = cart.filter(x => x.id !== id);
+    saveCart();
+  }
+
+  function changeQty(id,delta){
+    const it = cart.find(x => x.id === id);
+    if(!it) return;
+    it.qty = Math.max(1, it.qty + delta);
+    saveCart();
+  }
+
+  function updateCartUI(){
+    const totalItems = cart.reduce((s,p)=>s + p.qty, 0);
+    cartCountBubble.textContent = totalItems;
+
+    cartList.innerHTML = "";
+    if(cart.length === 0){
+      cartList.innerHTML = `
+        <div class="cart-empty">
+          🛒 Seu carrinho está vazio no momento.<br />
+          Comece adicionando uma motinha ou acessório.
+        </div>
+      `;
+      cartTotal.textContent = fmt(0);
+      return;
+    }
+
+    cart.forEach(i => {
+      const row = document.createElement("div");
+      row.className = "cart-item";
+      row.innerHTML = `
+        <div class="cart-thumb">
+          <img src="${i.img}" alt="${i.name}">
+        </div>
+        <div class="cart-main">
+          <div class="cart-name">${i.name}</div>
+          <div class="cart-meta">
+            ${fmt(i.price)} • Subtotal ${fmt(i.price * i.qty)}
+          </div>
+        </div>
+        <div class="cart-right">
+          <div class="pill-row">
+            <div class="pill" onclick="changeQty(${i.id},-1)">−</div>
+            <div class="pill pill-static">${i.qty}</div>
+            <div class="pill" onclick="changeQty(${i.id},1)">+</div>
+          </div>
+          <button class="btn-remove" onclick="removeFromCart(${i.id})">
+            <span>Remover</span> ✕
+          </button>
+        </div>
+      `;
+      cartList.appendChild(row);
+    });
+
+    const total = cart.reduce((s,i)=>s + i.price * i.qty, 0);
+    cartTotal.textContent = fmt(total);
+  }
+  updateCartUI();
+
+  function openCart(){
+    cartOverlay.classList.add("visible");
+    cartPanel.classList.add("open");
+  }
+  function closeCart(){
+    cartOverlay.classList.remove("visible");
+    cartPanel.classList.remove("open");
+  }
+
+  document.getElementById("openCartBtn").addEventListener("click", openCart);
+  document.getElementById("openCartBtn2").addEventListener("click", openCart);
+  document.getElementById("closeCartBtn").addEventListener("click", closeCart);
+  document.getElementById("closeCartBtn2").addEventListener("click", closeCart);
+  cartOverlay.addEventListener("click", closeCart);
+
+  document.getElementById("scrollProdutos").addEventListener("click", () => {
+    const sec = document.getElementById("produtos");
+    if(sec) sec.scrollIntoView({behavior:"smooth",block:"start"});
+  });
+
+  /* ====== MODAL PRODUTO (SABER MAIS) ====== */
+  let productModalCurrentId = null;
+
+  function openProduct(id){
+    const p = PRODUCTS.find(x => x.id === id);
+    if(!p) return;
+    productModalCurrentId = id;
+
+    productModalName.textContent  = p.name;
+    productModalShort.textContent = p.shortDesc;
+    productModalImg.src           = p.img;
+    productModalImg.alt           = p.name;
+    productModalLong.textContent  = p.longDesc || "";
+
+    if(p.specs && p.specs.length){
+      const lis = p.specs.map(s => `<li>${s}</li>`).join("");
+      productModalSpecs.innerHTML = `<strong>Especificações:</strong><ul>${lis}</ul>`;
+    }else{
+      productModalSpecs.innerHTML = "";
+    }
+
+    productModalPrice.textContent = `Preço referência: ${fmt(p.price)}`;
+
+    productModal.classList.add("visible");
+  }
+
+  function closeProductModal(){
+    productModal.classList.remove("visible");
+  }
+
+  document.getElementById("closeProductModalBtn").addEventListener("click", closeProductModal);
+  document.getElementById("productModalCloseBtn2").addEventListener("click", closeProductModal);
+  productModal.addEventListener("click", (e) => {
+    if(e.target === productModal){
+      closeProductModal();
+    }
+  });
+
+  productModalAddBtn.addEventListener("click", () => {
+    if(productModalCurrentId != null){
+      addToCart(productModalCurrentId);
+      closeProductModal();
+    }
+  });
+
+  /* ====== CHECKOUT VIA WHATSAPP ====== */
+  function openCheckout(){
+    if(cart.length === 0){
+      alert("Seu carrinho está vazio. Adicione algum produto antes de finalizar.");
+      return;
+    }
+
+    const total = cart.reduce((s,i)=>s + i.price * i.qty, 0);
+    const orderId = "NR-" + Date.now().toString(36).toUpperCase();
+
+    checkoutOrderIdEl.textContent = orderId;
+    checkoutTotalEl.textContent   = fmt(total);
+
+    checkoutResumoEl.innerHTML = "";
+    let linhas = [];
+    cart.forEach(item => {
+      const texto = `${item.qty}x ${item.name} — ${fmt(item.price * item.qty)}`;
+      linhas.push(texto);
+      const li = document.createElement("li");
+      li.textContent = texto;
+      checkoutResumoEl.appendChild(li);
+    });
+
+    const mensagem =
+`Olá, quero finalizar meu pedido na NovaRide Motors.
+
+Pedido: ${orderId}
+
+Itens:
+${linhas.join("\n")}
+
+Total estimado: ${fmt(total)}
+
+Podemos combinar frete e forma de pagamento?`;
+
+    const wppUrl = `https://wa.me/${WPP_SUPORTE_NUMERO}?text=${encodeURIComponent(mensagem)}`;
+    wppLink.href = wppUrl;
+
+    checkoutModal.classList.add("visible");
+  }
+
+  function closeCheckout(){
+    checkoutModal.classList.remove("visible");
+  }
+
+  document.getElementById("closeCheckoutBtn").addEventListener("click", closeCheckout);
+  checkoutModal.addEventListener("click", (e) => {
+    if(e.target === checkoutModal){
+      closeCheckout();
+    }
+  });
+
+  /* ====== EXPOSE ====== */
+  window.addToCart      = addToCart;
+  window.changeQty      = changeQty;
+  window.removeFromCart = removeFromCart;
+  window.openCheckout   = openCheckout;
+  window.openProduct    = openProduct;
+</script>
+
+</body>
+</html>
